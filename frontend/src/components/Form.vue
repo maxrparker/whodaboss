@@ -19,17 +19,14 @@
     }),
     methods: {
       forms() {
-        //console.log("HELLO")
-        console.log('in forms')
         this.$api
-        //why won't it post?, post isn't being reached at all
           .post(urls.getInfo, { username: this.username })
           .then((res) => {
-          console.log('posted')
+            console.log('posted')
             console.log(res)
           })
           .catch(e => {
-          console.log('error')
+            console.log('error')
             console.log(e)
           })
       }

@@ -2,9 +2,7 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-form lazy-validation ref="form">
-          <v-text-field v-model="form.employee" label="Username" @keyup.enter="forms()"> </v-text-field>
-        </v-form>
+        <v-text-field v-model="username" label="Username" @keydown.enter="forms()"> </v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -17,24 +15,21 @@
     name: 'WhoDaBoss',
 
     data: () => ({
-      form: {
-        employee: ''
-      },
+      username: ''
     }),
     methods: {
       forms() {
+        //console.log("HELLO")
+        console.log('in forms')
         this.$api
         //why won't it post?, post isn't being reached at all
-          .post(urls.getInfo, this.form, )
-          .then(() => {
-            this.snackText = 'Form updated successfully'
-            this.snackbar = true
-            this.$router.push('/')
-            this.form = this.initialState()
+          .post(urls.getInfo, { username: this.username })
+          .then((res) => {
+          console.log('posted')
+            console.log(res)
           })
           .catch(e => {
-            this.snackText = 'Failed to update form'
-            this.snackbar = true
+          console.log('error')
             console.log(e)
           })
       }

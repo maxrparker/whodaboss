@@ -1,12 +1,12 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const request = require('request')
 const port = 3000
 
 const manager = require('./Core/manager')
 
 const cors = require('cors')
+
 
 // app.use(bodyParser.json())
 // app.use(
@@ -15,7 +15,7 @@ const cors = require('cors')
 //   })
 // )
 
-// app.use(cors())
+app.use(cors())
 app.use(express.static('components'))
 
 // app.use(function(req, res, next) {

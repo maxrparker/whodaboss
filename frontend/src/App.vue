@@ -1,19 +1,19 @@
 <template>
   <v-app>
     <v-content>
-      <Questions/>
+      <Form/>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import Questions from './components/Questions.vue';
+import Form from './components/Form.vue';
 
 export default {
   name: 'App',
 
   components: {
-    Questions,
+    Form,
   },
 
   data: () => ({

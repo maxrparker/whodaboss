@@ -4,7 +4,7 @@
       <v-col>
         <v-text-field v-model="username"
                       label="Employee"
-                      @keyup.enter="getUser()"></v-text-field>
+                      @keyup.enter="getUser()"> </v-text-field>
 
       </v-col>
       <v-col>

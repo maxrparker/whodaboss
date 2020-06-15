@@ -10,8 +10,9 @@ exports.getInfo = function(req, res){
   console.log(req.body)
 	request("http://directory-api-dev.ynet.gov.yk.ca/employees", function(error, response, body) {
 		if (!error && (response.statusCode >= 200 && response.statusCode < 300)) {
-			rawResponse = body
-      res.send(rawResponse)
+			var rawResponse = JSON.parse(body)
+      //res.send(rawResponse)
 		}
+    console.log(rawResponse.employees[0])
 	})
 }

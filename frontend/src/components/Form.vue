@@ -2,7 +2,12 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-text-field v-model="username" label="Username" @keydown.enter="forms()"> </v-text-field>
+        <v-text-field v-model="employee" label="Employee Username" @keydown.enter="forms()"> </v-text-field>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <v-text-field v-model="manager" label="Manager Username" @keydown.enter="forms()"> </v-text-field>
       </v-col>
     </v-row>
   </v-container>
@@ -15,12 +20,13 @@
     name: 'WhoDaBoss',
 
     data: () => ({
-      username: ''
+      employee: '',
+      manager: ''
     }),
     methods: {
       forms() {
         this.$api
-          .post(urls.getInfo, { username: this.username })
+          .post(urls.getInfo, { employee: this.employee, manager: this.manager })
           .then((res) => {
             console.log('posted')
             console.log(res)

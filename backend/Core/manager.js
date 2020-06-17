@@ -57,11 +57,15 @@ exports.getInfo = function(req, res){
           manager = empList[i]
         }
       }
-      console.log("Is my manager? " + isMyBoss(employee, manager))
-      console.log("Is same department? " + isSameDepartment(employee, manager))
-      console.log("Is the manager name entered a manager? " + isAManager(manager.full_name, empList))
-      //console.log(employee)
-      //res.send(rawResponse)
+      // console.log("Is my manager? " + isMyBoss(employee, manager))
+      // console.log("Is same department? " + isSameDepartment(employee, manager))
+      // console.log("Is the manager name entered a manager? " + isAManager(manager.full_name, empList))
+      // console.log(employee)
+      res.send({
+        isMyBoss: isMyBoss(employee, manager),
+        isSameDepartment: isSameDepartment(employee, manager),
+        isAManager: isAManager(manager.full_name, empList)
+      })
 		}
     //console.log(rawResponse.employees[0])
 	})
